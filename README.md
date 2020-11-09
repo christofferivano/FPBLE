@@ -29,4 +29,4 @@
     ```sh
     php artisan serve
     ``` 
-*do instruction 2-6 in your project folder
+*do instruction 2-7 in your project folder
