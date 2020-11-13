@@ -27,5 +27,5 @@ Route::get('/category/new', 'CategoryController@create')->name('newcategory');
 Route::post('/category/create', 'CategoryController@store')->name('createcategory');
 Route::get('/category/show/{id}', 'CategoryController@show')->name('showcategorydetail');
 Route::get('/category/index', 'CategoryController@index')->name('showcategory');
-Route::get('/category/edit/{id}', 'CategoryController@displayEditCategoryPage')->name('category.edit');
+Route::get('/category/edit/{id}', 'CategoryController@update')->name('category.edit');
 Route::put('/category/edit/{id}', 'CategoryController@edit')->name('category.editput');

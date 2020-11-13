@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -67,17 +69,11 @@ class CategoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function displayEditCategoryPage($id)
-    {
-        $category = Category::find($id);
-        return view('category.edit',['category' => $category]);
-    }
-
-    public function edit(category $category, $id)
+    public function edit(CategoryRequest $request, $id)
     {
         $category = $request->validated();
         $editedCategory = Category::find($id)->update($category);
-        return redirect()->route('category.index')->with('status', 'Category successfully updated');
+        return redirect()->route('showcategory')->with('status', 'Category successfully updated');
     }
 
     /**
@@ -87,9 +83,10 @@ class CategoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, category $category)
+    public function update($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit',['category' => $category]);
     }
 
     /**
