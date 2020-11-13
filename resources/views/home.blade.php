@@ -9,15 +9,35 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    You are logged in!
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Category</h5>
+                                    <a href="#" class="card-link">Show All Category</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Item</h5>
+                                    <a href="{{route('showitem')}}" class="card-link">Show All Item</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

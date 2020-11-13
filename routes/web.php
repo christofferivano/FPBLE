@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/item/new', 'ItemController@create')->name('newitem');
+Route::post('/item/create', 'ItemController@store')->name('createitem');
+Route::get('/item/show/{id}', 'ItemController@show')->name('showdetail');
+
+Route::get('/item/index', 'ItemController@index')->name('showitem');
