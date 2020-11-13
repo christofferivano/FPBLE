@@ -19,7 +19,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Category</h5>
-                                    <a href="#" class="card-link">Show All Category</a>
+                                    <a href="{{route('showcategory')}}" class="card-link">Show All Category</a>
                                 </div>
                             </div>
                         </div>

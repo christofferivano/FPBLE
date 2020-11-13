@@ -18,7 +18,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all();
+        return view('category/index', ["category" => $category]);
     }
 
     /**
@@ -28,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -39,7 +40,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->category_name = $request->name;
+        $category->category_description = $request->description;
+
+        $category->save();
+
+        return redirect()->route('showcategory')->with('create_success', 'Category berhasil ditambahkan');
     }
 
     /**
@@ -48,9 +55,10 @@ class CategoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(category $category)
+    public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.show', ['category' => $category]);
     }
 
     /**
@@ -59,9 +67,17 @@ class CategoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(category $category)
+    public function displayEditCategoryPage($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit',['category' => $category]);
+    }
+
+    public function edit(category $category, $id)
+    {
+        $category = $request->validated();
+        $editedCategory = Category::find($id)->update($category);
+        return redirect()->route('category.index')->with('status', 'Category successfully updated');
     }
 
     /**

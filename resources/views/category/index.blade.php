@@ -4,12 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="{{route('newitem')}}" class="badge badge-primary">+new Item</a>
+            <a href="{{route('newcategory')}}" class="badge badge-primary">+new Category</a>
             @if (session('create_success'))
             <div class="alert alert-success" role="alert">
                 {{ session('create_success') }}
             </div>
             @endif
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+             @endif
         </div>
     </div>
 
@@ -17,13 +22,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    List Item
+                    List Category
                 </div>
                 <ul class="list-group list-group-flush">
-                    @forelse ($items as $i)
-                    <li class="list-group-item"><a href="{{route('showitemdetail', ['id' => $i->id])}}">{{$i->item_name}}</a></li>
+                    @forelse ($category as $i)
+                    <li class="list-group-item"><a href="{{route('showcategorydetail', ['id' => $i->id])}}">{{$i->category_name}}</a></li>
                     @empty
-                    <p class="text-center font-italic text-secondary">No Item</p>
+                    <p class="text-center font-italic text-secondary">No Category</p>
                     @endforelse
                 </ul>
             </div>
