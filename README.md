@@ -17,9 +17,9 @@
 
 4. Duplicate .env.example and rename to .env
 
-5. Create a database named `laravel` in your `SQL` and to create basic users table, run
+5. Create a database named `laravel` in your `SQL` and run
     ```sh
-    php artisan migrate:fresh
+    php artisan migrate:fresh --seed
     ```
 6. Generate application encryption key
     ```sh
