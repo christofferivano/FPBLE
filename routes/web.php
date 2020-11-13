@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/item/new', 'ItemController@create')->name('newitem');
 Route::post('/item/create', 'ItemController@store')->name('createitem');
-Route::get('/item/show/{id}', 'ItemController@show')->name('showditemdetail');
+Route::get('/item/show/{id}', 'ItemController@show')->name('showitemdetail');
 Route::get('/item/index', 'ItemController@index')->name('showitem');
 
 Route::get('/category/new', 'CategoryController@create')->name('newcategory');
