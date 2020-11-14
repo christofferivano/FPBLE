@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{$category->category_name}}</h5>
                     <p class="card-text"> Description : {{$category->category_description}}</p>
                     <a href="{{route('category.edit', ['id'=> $category->id])}}" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{{route('category.delete', ['id'=> $category->id])}}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>

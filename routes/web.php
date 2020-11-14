@@ -29,5 +29,5 @@ Route::get('/category/show/{id}', 'CategoryController@show')->name('showcategory
 Route::get('/category/index', 'CategoryController@index')->name('showcategory');
 Route::get('/category/edit/{id}', 'CategoryController@update')->name('category.edit');
 Route::put('/category/edit/{id}', 'CategoryController@edit')->name('category.editput');
-Route::get('/category/delete/{id}', 'MovieController@destroy')->name('category.deletepage');
-Route::delete('/category/delete/{id}', 'MovieController@delete')->name('category.delete');
+Route::get('/category/delete/{id}', 'CategoryController@destroy')->name('category.deletepage');
+Route::delete('/category/delete/{id}', 'CategoryController@delete')->name('category.delete');

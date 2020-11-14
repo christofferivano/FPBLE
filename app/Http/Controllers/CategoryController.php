@@ -100,9 +100,9 @@ class CategoryController extends Controller
         $deletedCategory = Category::find($id)->delete();
         return redirect()->route('showcategory')->with('status', 'Category successfully deleted');
     }
-    public function destroy(category $category)
+    public function destroy($id)
     {
-        $category = $category->validated();
+        $category = Category::find($id);
         return view('category.delete', ['category' => $category]);
     }
 }
