@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
+use Auth;
 
 class ItemController extends Controller
 {
@@ -77,9 +79,11 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(Item $item)
+    public function edit(ItemRequest $request, $id)
     {
-        //
+        $item = $request->validated();
+        $editedItem = Item::find($id)->update($item);
+        return redirect()->route('showitem')->with('status', 'Item successfully updated');
     }
 
     /**
@@ -89,9 +93,10 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update($id)
     {
-        //
+        $item = Item::find($id);
+        return view('item.edit',['item' => $item]);
     }
 
     /**
@@ -100,8 +105,15 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function delete($id)
     {
-        //
+        $deletedItem = Item::find($id)->delete();
+        return redirect()->route('showitem')->with('status', 'Item successfully deleted');
+    }
+    
+    public function destroy($id)
+    {
+        $item = Item::find($id);
+        return view('item.delete', ['item' => $item]);
     }
 }

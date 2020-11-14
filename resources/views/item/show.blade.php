@@ -10,8 +10,8 @@
                     <p class="card-text"> Description : {{$item->item_description}}</p>
                     <p class="card-text"> Quantity : {{$item->item_quantity}}</p>
                     <p class="card-text"> Category : {{$item->category->category_name}}</p>
-                    <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{{route('item.edit', ['id'=> $item->id])}}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('item.delete', ['id' => $item->id])}}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
