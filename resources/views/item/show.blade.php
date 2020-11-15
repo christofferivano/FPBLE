@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="col-md-3 pl-0">
-                <a href="{{route('showitem')}}" class="btn btn-primary stretched-link">Back</a>
+                <a href="{{url()->previous()}}" class="btn btn-primary stretched-link">Back</a>
             </div>
         </div>
     </div>

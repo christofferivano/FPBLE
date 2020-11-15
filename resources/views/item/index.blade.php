@@ -14,7 +14,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mt-3">
             <div class="card">
                 <div class="card-header">
                     List Item
@@ -33,7 +33,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="col-md-3 pl-0">
+            <div class="col-md-3 mt-3 pl-0">
                 <a href="{{route('home')}}" class="btn btn-primary stretched-link">Back</a>
             </div>
         </div>
