@@ -27,6 +27,7 @@ class ItemRequest extends FormRequest
             'item_name' => ['required', 'string'],
             'item_description' => ['required', 'string'],
             'item_quantity' => ['required', 'integer'],
+            'category' => ['required'],
         ];
     }
 }

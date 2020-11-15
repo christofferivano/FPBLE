@@ -82,6 +82,9 @@ class ItemController extends Controller
     public function edit(ItemRequest $request, $id)
     {
         $item = $request->validated();
+        $category = \App\Category::where('category_name', $item['category'])->get()[0];
+        $item['category_id'] = $category->id;
+
         $editedItem = Item::find($id)->update($item);
         return redirect()->route('showitem')->with('status', 'Item successfully updated');
     }
@@ -96,7 +99,8 @@ class ItemController extends Controller
     public function update($id)
     {
         $item = Item::find($id);
-        return view('item.edit',['item' => $item]);
+        $categories = \App\Category::all();
+        return view('item.edit', ['item' => $item, 'categories' => $categories]);
     }
 
     /**
@@ -110,7 +114,7 @@ class ItemController extends Controller
         $deletedItem = Item::find($id)->delete();
         return redirect()->route('showitem')->with('status', 'Item successfully deleted');
     }
-    
+
     public function destroy($id)
     {
         $item = Item::find($id);
